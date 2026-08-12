@@ -14,6 +14,7 @@ Site institucional da **Capithon**, equipe campeã do Hack2L AI Agents Hackathon
 ## Rodando localmente
 
 ```bash
+nvm use
 npm install
 npm run dev
 ```
@@ -36,10 +37,10 @@ src/
 public/
 ├── viu-ai-logo.png
 ├── viu-ai-cover.png
-├── _redirects        fallback de SPA para hospedagem estática
 ├── robots.txt
 └── sitemap.xml
 amplify.yml           pipeline para AWS Amplify Hosting
+.nvmrc                versão Node usada no projeto
 ```
 
 ## Conteúdo
@@ -63,10 +64,11 @@ O repositório inclui `amplify.yml` para deploy estático no Amplify Hosting:
 - instalação: `npm install --no-audit --no-fund`;
 - build: `npm run build`;
 - diretório de saída: `dist`;
-- cache de `node_modules`;
-- fallback de SPA em `public/_redirects`.
+- cache de `node_modules`.
 
 Ao conectar este repositório no Amplify Hosting, selecione a branch `main`. O Amplify deve detectar o `amplify.yml` automaticamente.
+
+Como o site atualmente é uma landing page de uma única rota, nenhuma regra SPA adicional é necessária. Se futuramente forem adicionadas rotas client-side, configure em **Hosting > Rewrites and redirects** uma regra de rewrite `200` para `/index.html` conforme a documentação do Amplify.
 
 ### Domínio `capithon.com.br`
 
