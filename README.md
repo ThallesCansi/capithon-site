@@ -36,6 +36,7 @@ src/
 public/
 ├── viu-ai-logo.png
 ├── viu-ai-cover.png
+├── _redirects        fallback de SPA para hospedagem estática
 ├── robots.txt
 └── sitemap.xml
 amplify.yml           pipeline para AWS Amplify Hosting
@@ -56,11 +57,14 @@ As responsabilidades do time e a descrição da Viu AI foram baseadas no reposit
 
 ## AWS Amplify
 
-O repositório já inclui `amplify.yml` para um deploy estático simples:
+O repositório inclui `amplify.yml` para deploy estático no Amplify Hosting:
 
-- comando de instalação: `npm ci`
-- build: `npm run build`
-- diretório de saída: `dist`
+- runtime selecionado no build: Node.js 22;
+- instalação: `npm install --no-audit --no-fund`;
+- build: `npm run build`;
+- diretório de saída: `dist`;
+- cache de `node_modules`;
+- fallback de SPA em `public/_redirects`.
 
 Ao conectar este repositório no Amplify Hosting, selecione a branch `main`. O Amplify deve detectar o `amplify.yml` automaticamente.
 
