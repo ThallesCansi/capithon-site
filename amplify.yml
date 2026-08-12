@@ -3,7 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - nvm use 22
+        - npm install --no-audit --no-fund
     build:
       commands:
         - npm run build
